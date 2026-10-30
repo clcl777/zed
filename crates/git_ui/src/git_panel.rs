@@ -7441,8 +7441,9 @@ impl GitPanel {
                 .justify_center()
                 .hover(|s| s.bg(cx.theme().colors().element_hover))
                 .border_b_1()
+                .when(active, |s| s.bg(cx.theme().colors().tab_active_background))
                 .when(!active, |s| {
-                    s.bg(cx.theme().colors().editor_background.opacity(0.6))
+                    s.bg(cx.theme().colors().tab_inactive_background)
                         .border_color(cx.theme().colors().border.opacity(0.6))
                 })
                 .child(Label::new(label.clone()).when(!active, |this| this.color(Color::Muted)))
